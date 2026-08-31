@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LPU ExamPrep AI — Year-Wise Exam Preparation & AI Mock-Test Platform</title>
+  
+  <link rel="manifest" href="/static/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+  <!-- Top Glassmorphism Navigation Bar -->
+  <header class="navbar">
+    <div class="brand">
+      <span>🎓 LPU ExamPrep AI</span>
+      <span class="brand-badge">LOVELY PROFESSIONAL UNIVERSITY</span>
+    </div>
+
+    <div id="user-header" style="display: flex; align-items: center; gap: 1rem;">
+      <!-- Dynamically rendered by app.js -->
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="tab-nav">
+    <button class="tab-btn active" id="tab-home" onclick="app.switchPage('home')">🏠 Home</button>
+    <button class="tab-btn" id="tab-subjects" onclick="app.switchPage('subjects')">📚 8-Term Curriculum</button>
+    <button class="tab-btn" id="tab-domains" onclick="app.switchPage('domains')">🧠 Core Subject Domains</button>
+    <button class="tab-btn" id="tab-electives" onclick="app.switchPage('electives')">🌟 Electives & Pathways</button>
+    <button class="tab-btn" id="tab-pedagogy" onclick="app.switchPage('pedagogy')">🤝 Pedagogy & Partners</button>
+    <button class="tab-btn" id="tab-analyzer" onclick="app.switchPage('analyzer')">🤖 AI PYQ Analyzer</button>
+    <button class="tab-btn" id="tab-mock-test" onclick="app.switchPage('mock-test')">⚡ AI Mock Test</button>
+    <button class="tab-btn" id="tab-study-planner" onclick="app.switchPage('study-planner')">🗓️ C++ Planner</button>
+    <button class="tab-btn" id="tab-dashboard" onclick="app.switchPage('dashboard')">📈 Dashboard</button>
+    <button class="tab-btn" id="tab-admin-cli" onclick="app.switchPage('admin-cli')">💻 C CLI</button>
+    <button class="tab-btn" id="tab-login" onclick="app.switchPage('login')" style="margin-left: auto; background: var(--lpu-purple); color: #fff;">🔑 Sign In</button>
+    <button class="tab-btn" id="tab-register" onclick="app.switchPage('register')" style="background: rgba(255, 255, 255, 0.1); color: #fff;">📝 Register</button>
+  </nav>
+
+  <!-- Live Student Statistics Header Bar -->
+  <div id="live-user-stats-bar" style="max-width: 1400px; margin: 1rem auto 0 auto; padding: 0 2rem; display: none;">
+    <!-- Rendered dynamically by app.js -->
+  </div>
+
+  <!-- Main View Container -->
+  <main class="main-container">
+
+    <!-- 1. Home Page -->
+    <section class="page-section active" id="page-home">
+      <div class="glass-panel" style="padding: 2.5rem; margin-bottom: 2rem; background: linear-gradient(135deg, rgba(126, 34, 206, 0.3), rgba(59, 130, 246, 0.2)); border: 1px solid rgba(192, 132, 252, 0.3);">
+        <span class="badge badge-purple" style="margin-bottom: 0.75rem;">AI-POWERED ACADEMIC PREPARATION</span>
+        <h1 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 0.75rem;">Ace Your LPU End-Term & Mid-Term Examinations</h1>
+        <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 800px; line-height: 1.6; margin-bottom: 1.5rem;">
+          Access program-wise authorized study resources, unit-wise syllabus notes, multi-year PYQs, AI syllabus weightage analysis, and custom mock tests powered by C++ DSA scheduling engines.
+        </p>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <button class="btn" onclick="app.switchPage('subjects')">📚 Browse Subjects by Year</button>
+          <button class="btn btn-secondary" onclick="app.switchPage('mock-test')">⚡ Generate Custom AI Mock Test</button>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom: 1rem;">LPU Academic Program Navigator</h3>
+      <div class="grid-cards" style="margin-bottom: 2rem;">
+        <div class="glass-panel card-item" style="cursor: pointer;" onclick="app.openProgramYearsView(1, 'B.Tech CSE')">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="badge badge-purple">COMPUTER SCIENCE</span>
+            <span style="font-size: 0.8rem; color: #c084fc; font-weight: 600;">4 Years • 8 Terms ➔</span>
+          </div>
+          <h3 style="color: var(--text-primary); font-size: 1.2rem;">B.Tech CSE</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Explore Years 1, 2, 3, and 4 curriculum terms step-by-step.</p>
+        </div>
+
+        <div class="glass-panel card-item" style="cursor: pointer;" onclick="app.openProgramYearsView(2, 'BCA')">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="badge badge-blue">COMPUTER APPLICATIONS</span>
+            <span style="font-size: 0.8rem; color: #60a5fa; font-weight: 600;">3 Years • 6 Terms ➔</span>
+          </div>
+          <h3 style="color: var(--text-primary); font-size: 1.2rem;">BCA</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Explore Year-wise terms for Bachelor of Computer Applications.</p>
+        </div>
+
+        <div class="glass-panel card-item" style="cursor: pointer;" onclick="app.openProgramYearsView(3, 'B.Sc IT')">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="badge badge-emerald">INFORMATION TECHNOLOGY</span>
+            <span style="font-size: 0.8rem; color: #34d399; font-weight: 600;">3 Years • 6 Terms ➔</span>
+          </div>
+          <h3 style="color: var(--text-primary); font-size: 1.2rem;">B.Sc IT</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Explore Year-wise terms for B.Sc Information Technology.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Browse Subjects Page -->
+    <section class="page-section" id="page-subjects">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h2>Academic Subject Repository</h2>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Select your program, academic year, and semester to access unit syllabus and PYQs.</p>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <select id="term-filter-select" class="form-input" style="width: auto;" onchange="app.filterByTerm(this.value)">
+            <option value="">All 8 Terms (All 4 Years)</option>
+            <option value="1">1st Year – Autumn Term (Term 1)</option>
+            <option value="2">1st Year – Spring Term (Term 2)</option>
+            <option value="3">2nd Year – Autumn Term (Term 3)</option>
+            <option value="4">2nd Year – Spring Term (Term 4)</option>
+            <option value="5">3rd Year – Autumn Term (Term 5)</option>
+            <option value="6">3rd Year – Spring Term (Term 6)</option>
+            <option value="7">4th Year – Autumn Term (Term 7)</option>
+            <option value="8">4th Year – Spring Term (Term 8)</option>
+          </select>
+          <input type="text" id="subject-search-input" class="form-input" style="width: 250px;" placeholder="Search subject code or name..." oninput="app.loadSubjects(this.value)">
+        </div>
+      </div>
+
+      <div id="year-navigator-container" style="margin-bottom: 1.5rem;">
+        <!-- Year & Term Navigation Cards rendered by app.js -->
+      </div>
+
+      <div class="grid-cards" id="subjects-grid">
+        <!-- Rendered by components.js -->
+      </div>
+
+      <div id="subject-detail-view" style="margin-top: 2rem;">
+        <!-- Detailed view loaded on selection -->
+      </div>
+    </section>
+
+    <!-- NEW MODULE: Core Subject Domains -->
+    <section class="page-section" id="page-domains">
+      <div style="margin-bottom: 1.5rem;">
+        <h2>Core Subject Key Areas & Domains</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Categorization of all core computer science subjects across 8 key academic foundation areas.</p>
+      </div>
+      <div class="grid-cards" id="domains-grid">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- NEW MODULE: Electives & Specialization Pathways -->
+    <section class="page-section" id="page-electives">
+      <div style="margin-bottom: 1.5rem;">
+        <h2>Year 3 & 4 Specialization & Elective Categories</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Engineering Minors, Department Electives, Language Electives, Pathway Electives, Open Minors, and Training Components.</p>
+      </div>
+      <div class="grid-cards" id="electives-grid">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- NEW MODULE: LPU Practice Pedagogy & Industry Collaborations -->
+    <section class="page-section" id="page-pedagogy">
+      <div style="margin-bottom: 1.5rem;">
+        <h2>LPU Practice Pedagogy & 22+ Global Industry Tie-Ups</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Practice-based learning methodologies, live competitive coding, and corporate technology partner interface.</p>
+      </div>
+
+      <h3 style="margin-bottom: 1rem; color: var(--lpu-cyan);">6 Core Learning Methodologies</h3>
+      <div class="grid-cards" id="pedagogy-pillars-container" style="margin-bottom: 2rem;">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <div class="glass-panel" style="padding: 1.5rem;">
+        <h3 style="margin-bottom: 1rem; color: #c084fc;">🤝 Official Corporate & Industry Partners</h3>
+        <div id="partners-cloud-container" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+          <!-- Rendered by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. AI Syllabus & PYQ Analyzer Page -->
+    <section class="page-section" id="page-analyzer">
+      <div style="margin-bottom: 1.5rem;">
+        <h2>AI Syllabus & PYQ Topic Pattern Analyzer</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">AI NLP logic extracts high-yield topics, repeated question patterns, and estimated unit weightages.</p>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.25rem; margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+        <div>
+          <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Filter by Semester:</label>
+          <select id="analyzer-semester-select" class="form-input" style="width: auto;" onchange="app.onAnalyzerSemesterChange(this.value)">
+            <option value="">All Semesters (Sem 1 to 8)</option>
+            <option value="1">Semester 1 (1st Yr Autumn)</option>
+            <option value="2">Semester 2 (1st Yr Spring)</option>
+            <option value="3" selected>Semester 3 (2nd Yr Autumn)</option>
+            <option value="4">Semester 4 (2nd Yr Spring)</option>
+            <option value="5">Semester 5 (3rd Yr Autumn)</option>
+            <option value="6">Semester 6 (3rd Yr Spring)</option>
+            <option value="7">Semester 7 (4th Yr Autumn)</option>
+            <option value="8">Semester 8 (4th Yr Spring)</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Select Target Subject:</label>
+          <select id="analyzer-subject-select" class="form-input" style="width: auto;" onchange="app.openAIAnalyzer(this.value)">
+            <option value="CSE305">CSE305 - Database Management Systems</option>
+            <option value="CSE205">CSE205 - Data Structures & Algorithms</option>
+            <option value="CSE310">CSE310 - Computer Networks</option>
+            <option value="CSE207">CSE207 - Object Oriented Programming (C++)</option>
+            <option value="INT102">INT102 - Python Programming</option>
+            <option value="CSE307">CSE307 - Design & Analysis of Algorithms</option>
+            <option value="CSE316">CSE316 - Operating Systems</option>
+            <option value="CSE306">CSE306 - Programming in Java</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="ai-analysis-container">
+        <!-- Filled by AI NLP response -->
+      </div>
+    </section>
+
+    <!-- 4. AI Mock-Test Generator Page -->
+    <section class="page-section" id="page-mock-test">
+      <div style="margin-bottom: 1.5rem;">
+        <h2>Syllabus-Aligned AI Mock-Test Generator</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Customize question count, difficulty, and duration to simulate real LPU end-term examination conditions.</p>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Semester</label>
+            <select id="mock-semester" class="form-input" onchange="app.onMockSemesterChange(this.value)">
+              <option value="">All Semesters (1-8)</option>
+              <option value="1">Sem 1 (1st Yr Autumn)</option>
+              <option value="2">Sem 2 (1st Yr Spring)</option>
+              <option value="3" selected>Sem 3 (2nd Yr Autumn)</option>
+              <option value="4">Sem 4 (2nd Yr Spring)</option>
+              <option value="5">Sem 5 (3rd Yr Autumn)</option>
+              <option value="6">Sem 6 (3rd Yr Spring)</option>
+              <option value="7">Sem 7 (4th Yr Autumn)</option>
+              <option value="8">Sem 8 (4th Yr Spring)</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Subject</label>
+            <select id="mock-subject" class="form-input">
+              <option value="CSE305">CSE305 - Database Management Systems</option>
+              <option value="CSE205">CSE205 - Data Structures & Algorithms</option>
+              <option value="CSE310">CSE310 - Computer Networks</option>
+              <option value="CSE207">CSE207 - Object Oriented Programming (C++)</option>
+              <option value="INT102">INT102 - Python Programming</option>
+              <option value="CSE307">CSE307 - Design & Analysis of Algorithms</option>
+              <option value="CSE316">CSE316 - Operating Systems</option>
+              <option value="CSE306">CSE306 - Programming in Java</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Number of Questions</label>
+            <input type="number" id="mock-num-q" class="form-input" value="5" min="1" max="20">
+          </div>
+
+          <div>
+            <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Difficulty Level</label>
+            <select id="mock-difficulty" class="form-input">
+              <option value="EASY">Easy</option>
+              <option value="MEDIUM" selected>Medium</option>
+              <option value="HARD">Hard (Exam-Level)</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn" style="width: 100%; padding: 0.75rem;" onclick="app.generateMockTest()">🚀 Generate AI Mock Test & Start Timer</button>
+      </div>
+
+      <div id="mock-test-container">
+        <!-- Rendered by AI Test engine -->
+      </div>
+    </section>
+
+    <!-- 5. C++ DSA Study Planner Page -->
+    <section class="page-section" id="page-study-planner">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <div>
+          <h2>C++ DSA-Based Study Planner Engine</h2>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            Executes native C++ binary (<code style="color: #38bdf8;">study_planner_engine.exe</code>) using Binary Max-Heap & Prerequisite Directed Graph to generate an optimized daily study schedule.
+          </p>
+        </div>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Upcoming Exam Date</label>
+            <input type="date" id="planner-exam-date" class="form-input" value="2026-09-15">
+          </div>
+
+          <div>
+            <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Available Study Hours Per Day</label>
+            <input type="number" id="planner-daily-hours" class="form-input" value="4.0" step="0.5">
+          </div>
+        </div>
+
+        <button class="btn" style="width: 100%; padding: 0.75rem;" onclick="app.generateStudyPlan()">⚡ Trigger C++ Max-Heap Queue & Topological Graph Scheduler</button>
+      </div>
+
+      <div class="glass-panel" id="cpp-planner-output" style="padding: 1rem;">
+        <!-- Filled by C++ API response -->
+      </div>
+    </section>
+
+    <!-- 6. Performance Dashboard Page -->
+    <section class="page-section" id="page-dashboard">
+      <div style="margin-bottom: 1.5rem;">
+        <h2>Student Performance & Readiness Dashboard</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Subject-wise performance, test histories, and SQL Stored Procedure reports.</p>
+      </div>
+
+      <div id="dashboard-analytics-content">
+        <!-- Rendered by analytics API -->
+      </div>
+    </section>
+
+    <!-- 7. C Admin CLI Data Console Page -->
+    <section class="page-section" id="page-admin-cli">
+      <div style="margin-bottom: 1.5rem;">
+        <h2>C Academic Data Manager Console</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">
+          Direct web terminal connected to high-performance C binary (<code style="color: #38bdf8;">exam_data_manager.exe</code>) performing Quicksort, keyword searching, and CSV exports.
+        </p>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.25rem; margin-bottom: 1.25rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+        <input type="text" id="c-search-query" class="form-input" style="flex: 1; min-width: 250px;" placeholder="Search question bank by keyword (e.g., DBMS, BCNF, Unit 2)...">
+        <button class="btn" onclick="app.loadCAdminCLI(document.getElementById('c-search-query').value)">🔍 Search via C Quicksort</button>
+        <button class="btn btn-secondary" onclick="app.loadCAdminCLI('')">⚡ Run C Benchmark & Export CSV</button>
+      </div>
+
+      <div class="terminal-box" id="c-cli-terminal">
+        [C Admin CLI] Ready. Select options above to execute C binary.
+      </div>
+    </section>
+
+    <!-- 8. Student Login Page -->
+    <section class="page-section" id="page-login">
+      <div style="max-width: 480px; margin: 2rem auto;">
+        <div class="glass-panel" style="padding: 2rem;">
+          <div style="text-align: center; margin-bottom: 1.5rem;">
+            <span class="badge badge-purple" style="margin-bottom: 0.5rem;">LOVELY PROFESSIONAL UNIVERSITY</span>
+            <h2>Student Sign In</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">Access your academic resources, AI syllabus analyzer, and mock test dashboard.</p>
+          </div>
+
+          <!-- Social OAuth Login Buttons -->
+          <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.25rem;">
+            <button class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 0.6rem; width: 100%; padding: 0.6rem;" onclick="app.handleOAuthLogin('Google')">
+              <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+              <span>Continue with Google</span>
+            </button>
+            <div style="display: flex; gap: 0.6rem;">
+              <button class="btn btn-secondary" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.4rem; font-size: 0.8rem;" onclick="app.handleOAuthLogin('Apple')">
+                <span>🍎 Apple</span>
+              </button>
+              <button class="btn btn-secondary" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.4rem; font-size: 0.8rem;" onclick="app.handleOAuthLogin('Facebook')">
+                <span>📘 Facebook</span>
+              </button>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+            <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.1);"></div>
+            <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">or sign in with credentials</span>
+            <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.1);"></div>
+          </div>
+
+          <form onsubmit="app.handleLoginSubmit(event)">
+            <div style="margin-bottom: 1rem;">
+              <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">University Email Address</label>
+              <input type="email" id="login-email" class="form-input" placeholder="e.g. aarav@lpu.in" required value="aarav@lpu.in">
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+              <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">
+                LPU Registration Number <span style="color: var(--accent-rose); font-weight: 700;">* (Mandatory)</span>
+              </label>
+              <input type="text" id="login-reg-number" class="form-input" placeholder="e.g. 12204891" required value="12204891">
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Password</label>
+              <input type="password" id="login-password" class="form-input" placeholder="Enter password" required value="password123">
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%; padding: 0.75rem;">🔑 Sign In to Student Portal</button>
+          </form>
+
+          <div id="login-error-msg" style="margin-top: 1rem; color: var(--accent-rose); font-size: 0.85rem; text-align: center;"></div>
+
+          <div style="margin-top: 1.5rem; text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+            Don't have an account yet? <a style="color: #c084fc; text-decoration: underline; cursor: pointer;" onclick="app.switchPage('register')">Create a New Account</a>
+          </div>
+
+          <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08);">
+            <strong style="font-size: 0.78rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem; text-align: center;">⚡ Quick Demo One-Click Sign In:</strong>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <button class="btn btn-secondary" style="flex: 1; font-size: 0.75rem;" onclick="app.quickLogin('aarav@lpu.in', 'password123', '12204891')">👨‍🎓 Aarav (Reg #12204891)</button>
+              <button class="btn btn-secondary" style="flex: 1; font-size: 0.75rem;" onclick="app.quickLogin('sneha@lpu.in', 'password123', '12205102')">👩‍🎓 Sneha (Reg #12205102)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Student Registration Page -->
+    <section class="page-section" id="page-register">
+      <div style="max-width: 520px; margin: 2rem auto;">
+        <div class="glass-panel" style="padding: 2rem;">
+          <div style="text-align: center; margin-bottom: 1.5rem;">
+            <span class="badge badge-purple" style="margin-bottom: 0.5rem;">NEW STUDENT REGISTRATION</span>
+            <h2>Create LPU ExamPrep Account</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">Register with your official LPU Registration Number for personalized syllabus AI planning.</p>
+          </div>
+
+          <!-- Social OAuth Register Buttons -->
+          <div style="display: flex; gap: 0.6rem; margin-bottom: 1.25rem;">
+            <button class="btn btn-secondary" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.4rem; font-size: 0.8rem;" onclick="app.handleOAuthLogin('Google')">
+              <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+              <span>Google</span>
+            </button>
+            <button class="btn btn-secondary" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.4rem; font-size: 0.8rem;" onclick="app.handleOAuthLogin('Apple')">
+              <span>🍎 Apple</span>
+            </button>
+            <button class="btn btn-secondary" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.4rem; font-size: 0.8rem;" onclick="app.handleOAuthLogin('Facebook')">
+              <span>📘 Facebook</span>
+            </button>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+            <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.1);"></div>
+            <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">or register manually</span>
+            <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.1);"></div>
+          </div>
+
+          <form onsubmit="app.handleRegisterSubmit(event)">
+            <div style="margin-bottom: 1rem;">
+              <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Full Name</label>
+              <input type="text" id="reg-fullname" class="form-input" placeholder="e.g. Rohan Sharma" required>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+              <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">
+                LPU Registration Number <span style="color: var(--accent-rose); font-weight: 700;">* (Mandatory)</span>
+              </label>
+              <input type="text" id="reg-number" class="form-input" placeholder="e.g. 12208945" required>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+              <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">University Email Address</label>
+              <input type="email" id="reg-email" class="form-input" placeholder="e.g. rohan@lpu.in" required>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+              <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Academic Program</label>
+              <select id="reg-program" class="form-input">
+                <option value="1">B.Tech Computer Science & Engineering (B.Tech CSE)</option>
+                <option value="2">Bachelor of Computer Applications (BCA)</option>
+                <option value="3">B.Sc Information Technology (B.Sc IT)</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Create Password</label>
+              <input type="password" id="reg-password" class="form-input" placeholder="At least 6 characters" required>
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%; padding: 0.75rem;">📝 Register Account</button>
+          </form>
+
+          <div id="register-error-msg" style="margin-top: 1rem; color: var(--accent-rose); font-size: 0.85rem; text-align: center;"></div>
+
+          <div style="margin-top: 1.5rem; text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+            Already registered? <a style="color: #c084fc; text-decoration: underline; cursor: pointer;" onclick="app.switchPage('login')">Sign In to Existing Account</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Android Mobile Bottom Navigation Bar -->
+  <nav class="mobile-bottom-nav">
+    <a class="mobile-nav-item active" id="mnav-home" onclick="app.switchPage('home')">
+      <span class="mobile-nav-icon">🏠</span>
+      <span>Home</span>
+    </a>
+    <a class="mobile-nav-item" id="mnav-subjects" onclick="app.switchPage('subjects')">
+      <span class="mobile-nav-icon">📚</span>
+      <span>Subjects</span>
+    </a>
+    <a class="mobile-nav-item" id="mnav-analyzer" onclick="app.switchPage('analyzer')">
+      <span class="mobile-nav-icon">🤖</span>
+      <span>AI PYQ</span>
+    </a>
+    <a class="mobile-nav-item" id="mnav-mock-test" onclick="app.switchPage('mock-test')">
+      <span class="mobile-nav-icon">⚡</span>
+      <span>Mock Test</span>
+    </a>
+    <a class="mobile-nav-item" id="mnav-study-planner" onclick="app.switchPage('study-planner')">
+      <span class="mobile-nav-icon">🗓️</span>
+      <span>Planner</span>
+    </a>
+    <a class="mobile-nav-item" id="mnav-dashboard" onclick="app.switchPage('dashboard')">
+      <span class="mobile-nav-icon">📈</span>
+      <span>Dashboard</span>
+    </a>
+  </nav>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/components.js"></script>
+  <script src="/static/js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/static/sw.js').catch(err => console.log('PWA ServiceWorker reg error:', err));
+    }
+  </script>
+</body>
+</html>

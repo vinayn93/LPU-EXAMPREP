@@ -1,0 +1,7 @@
+ID,Subject,Unit,QuestionText,Marks,Year,Difficulty
+1003,"DAA","Unit 3","Solve 0/1 Knapsack Problem using Dynamic Programming.",12,2024,"Hard"
+1001,"DBMS","Unit 2","Explain 3NF vs BCNF normalization with examples.",10,2024,"Hard"
+1006,"DBMS","Unit 3","Describe 2-Phase Locking Protocol and Deadlock Prevention.",10,2023,"Medium"
+1004,"OS","Unit 2","Explain Peterson's Algorithm for Mutual Exclusion.",8,2022,"Medium"
+1002,"DBMS","Unit 1","Define primary key, foreign key, and candidate key.",5,2023,"Easy"
+1005,"CN","Unit 4","Differentiate between IPv4 and IPv6 packet headers.",5,2024,"Easy"

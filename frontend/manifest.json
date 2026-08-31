@@ -1,0 +1,15 @@
+{
+  "short_name": "LPU ExamPrep",
+  "name": "LPU ExamPrep AI — Student Preparation Platform",
+  "icons": [
+    {
+      "src": "https://img.icons8.com/isometric/192/graduation-cap.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#090d16",
+  "theme_color": "#6b21a8",
+  "display": "standalone"
+}

@@ -1,0 +1,202 @@
+{
+  "syllabus_extractions": {},
+  "ai_analyses": {
+    "CAP402": {
+      "subject_code": "CAP402",
+      "analysis": {
+        "subject_code": "CAP402",
+        "total_extracted_topics": 5,
+        "high_yield_topics": [
+          {
+            "unit": "Unit 1",
+            "topic": "Relational Model & Relational Algebra",
+            "frequency": 8,
+            "weightage_pct": 25,
+            "difficulty": "MEDIUM"
+          },
+          {
+            "unit": "Unit 2",
+            "topic": "Normal Forms (3NF, BCNF, 4NF)",
+            "frequency": 12,
+            "weightage_pct": 30,
+            "difficulty": "HARD"
+          },
+          {
+            "unit": "Unit 3",
+            "topic": "ACID Properties & Transaction Concurrency (2PL)",
+            "frequency": 7,
+            "weightage_pct": 20,
+            "difficulty": "HARD"
+          }
+        ],
+        "all_topics": [
+          {
+            "unit": "Unit 1",
+            "topic": "Relational Model & Relational Algebra",
+            "frequency": 8,
+            "weightage_pct": 25,
+            "difficulty": "MEDIUM"
+          },
+          {
+            "unit": "Unit 2",
+            "topic": "Normal Forms (3NF, BCNF, 4NF)",
+            "frequency": 12,
+            "weightage_pct": 30,
+            "difficulty": "HARD"
+          },
+          {
+            "unit": "Unit 3",
+            "topic": "ACID Properties & Transaction Concurrency (2PL)",
+            "frequency": 7,
+            "weightage_pct": 20,
+            "difficulty": "HARD"
+          },
+          {
+            "unit": "Unit 4",
+            "topic": "B+ Tree Indexing & Dynamic Hashing",
+            "frequency": 6,
+            "weightage_pct": 15,
+            "difficulty": "MEDIUM"
+          },
+          {
+            "unit": "Unit 5",
+            "topic": "Distributed Databases & NoSQL Architecture",
+            "frequency": 4,
+            "weightage_pct": 10,
+            "difficulty": "EASY"
+          }
+        ],
+        "unit_weightage_chart": [
+          {
+            "unit": "Unit 1",
+            "weightage": 25
+          },
+          {
+            "unit": "Unit 2",
+            "weightage": 30
+          },
+          {
+            "unit": "Unit 3",
+            "weightage": 20
+          },
+          {
+            "unit": "Unit 4",
+            "weightage": 15
+          },
+          {
+            "unit": "Unit 5",
+            "weightage": 10
+          }
+        ],
+        "recommended_revision_sequence": [
+          "1. Foundational Concepts (Unit 1)",
+          "2. Normalization & Functional Dependencies (Unit 2 - Highest Exam Weight)",
+          "3. Concurrency Control & Locking Protocols (Unit 3)",
+          "4. File Indexing & B+ Trees (Unit 4)",
+          "5. Advanced NoSQL & Storage (Unit 5)"
+        ]
+      },
+      "generated_at": "2026-08-31T05:58:13.012616+00:00"
+    },
+    "ENG101": {
+      "subject_code": "ENG101",
+      "analysis": {
+        "subject_code": "ENG101",
+        "total_extracted_topics": 5,
+        "high_yield_topics": [
+          {
+            "unit": "Unit 1",
+            "topic": "Relational Model & Relational Algebra",
+            "frequency": 8,
+            "weightage_pct": 25,
+            "difficulty": "MEDIUM"
+          },
+          {
+            "unit": "Unit 2",
+            "topic": "Normal Forms (3NF, BCNF, 4NF)",
+            "frequency": 12,
+            "weightage_pct": 30,
+            "difficulty": "HARD"
+          },
+          {
+            "unit": "Unit 3",
+            "topic": "ACID Properties & Transaction Concurrency (2PL)",
+            "frequency": 7,
+            "weightage_pct": 20,
+            "difficulty": "HARD"
+          }
+        ],
+        "all_topics": [
+          {
+            "unit": "Unit 1",
+            "topic": "Relational Model & Relational Algebra",
+            "frequency": 8,
+            "weightage_pct": 25,
+            "difficulty": "MEDIUM"
+          },
+          {
+            "unit": "Unit 2",
+            "topic": "Normal Forms (3NF, BCNF, 4NF)",
+            "frequency": 12,
+            "weightage_pct": 30,
+            "difficulty": "HARD"
+          },
+          {
+            "unit": "Unit 3",
+            "topic": "ACID Properties & Transaction Concurrency (2PL)",
+            "frequency": 7,
+            "weightage_pct": 20,
+            "difficulty": "HARD"
+          },
+          {
+            "unit": "Unit 4",
+            "topic": "B+ Tree Indexing & Dynamic Hashing",
+            "frequency": 6,
+            "weightage_pct": 15,
+            "difficulty": "MEDIUM"
+          },
+          {
+            "unit": "Unit 5",
+            "topic": "Distributed Databases & NoSQL Architecture",
+            "frequency": 4,
+            "weightage_pct": 10,
+            "difficulty": "EASY"
+          }
+        ],
+        "unit_weightage_chart": [
+          {
+            "unit": "Unit 1",
+            "weightage": 25
+          },
+          {
+            "unit": "Unit 2",
+            "weightage": 30
+          },
+          {
+            "unit": "Unit 3",
+            "weightage": 20
+          },
+          {
+            "unit": "Unit 4",
+            "weightage": 15
+          },
+          {
+            "unit": "Unit 5",
+            "weightage": 10
+          }
+        ],
+        "recommended_revision_sequence": [
+          "1. Foundational Concepts (Unit 1)",
+          "2. Normalization & Functional Dependencies (Unit 2 - Highest Exam Weight)",
+          "3. Concurrency Control & Locking Protocols (Unit 3)",
+          "4. File Indexing & B+ Trees (Unit 4)",
+          "5. Advanced NoSQL & Storage (Unit 5)"
+        ]
+      },
+      "generated_at": "2026-08-31T06:03:03.143478+00:00"
+    }
+  },
+  "mock_test_explanations": {},
+  "search_logs": [],
+  "user_feedback": []
+}

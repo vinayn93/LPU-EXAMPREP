@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+*.db
+
+# C / C++ compiled binaries
+*.exe
+*.o
+*.obj
+*.out
+
+# Node / Dependencies
+node_modules/
+npm-debug.log*
+
+# Android build outputs
+android_app/.gradle/
+android_app/build/
+android_app/app/build/
+android_app/local.properties
+
+# Environment & System
+.env
+.DS_Store
+Thumbs.db
