@@ -1,8 +1,9 @@
-import os
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-
 import tempfile
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 db_dir = os.path.join(PROJECT_ROOT, "database")
