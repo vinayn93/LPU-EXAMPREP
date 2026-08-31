@@ -130,4 +130,8 @@ class MongoDocumentStore:
             store["user_feedback"].append(doc)
             self._write_local_store(store)
 
-mongo_store = MongoDocumentStore()
+try:
+    mongo_store = MongoDocumentStore()
+except Exception as _e:
+    print(f"[MongoDB Store Error] Initialization note: {_e}")
+    mongo_store = MongoDocumentStore(connection_uri="none")
