@@ -21,7 +21,13 @@ LOCAL_MONGO_STORE_PATH = os.path.join(
 )
 
 class MongoDocumentStore:
-    def __init__(self, connection_uri: str = "mongodb://localhost:27017", db_name: str = "lpu_examprep_docs"):
+    def __init__(self, connection_uri: Optional[str] = None, db_name: Optional[str] = None):
+        if not connection_uri:
+            connection_uri = os.environ.get("MONGODB_URI") or os.environ.get("MONGO_URL") or "mongodb://localhost:27017"
+        if not db_name:
+            db_name = os.environ.get("MONGODB_DB_NAME") or "lpu_examprep_docs"
+
+        self.connection_uri = connection_uri
         self.db_name = db_name
         self.use_real_mongo = False
         self.client = None
@@ -29,14 +35,16 @@ class MongoDocumentStore:
 
         if PYMONGO_AVAILABLE:
             try:
-                self.client = MongoClient(connection_uri, serverSelectionTimeoutMS=1500)
+                # Use 5 second timeout for remote MongoDB Atlas clusters
+                timeout = 5000 if ("mongodb+srv" in connection_uri or os.environ.get("VERCEL")) else 1500
+                self.client = MongoClient(connection_uri, serverSelectionTimeoutMS=timeout)
                 self.client.admin.command('ping')
                 self.db = self.client[db_name]
                 self.use_real_mongo = True
-                print("[MongoDB Store] Connected to live MongoDB instance.")
-            except Exception:
+                print(f"[MongoDB Store] Connected to live MongoDB instance ({db_name}).")
+            except Exception as e:
                 self.use_real_mongo = False
-                print("[MongoDB Store] MongoDB server offline. Running in Local BSON/JSON Document Fallback Mode.")
+                print(f"[MongoDB Store] MongoDB server offline or invalid URI. Details: {e}. Running in Local BSON/JSON Document Fallback Mode.")
         else:
             print("[MongoDB Store] PyMongo not installed. Running in Local Document Store Mode.")
 

@@ -60,11 +60,15 @@ def serve_index():
         return FileResponse(index_path)
     return {"message": "LPU ExamPrep AI API Backend is Online!"}
 
+from backend.app.models.mongo_models import mongo_store
+
 @app.get("/api/health")
 def health_check():
     return {
         "status": "HEALTHY",
         "system": "LPU ExamPrep AI",
         "institution": "Lovely Professional University",
+        "mongodb_connected": mongo_store.use_real_mongo,
+        "mongodb_mode": "Live MongoDB Cluster" if mongo_store.use_real_mongo else "Local BSON/JSON Fallback",
         "technologies": ["Python FastAPI", "C++ Heap/Graph Planner", "C Data Manager CLI", "MS SQL Server / SQLite", "MongoDB Document Store"]
     }
