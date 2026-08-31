@@ -26,10 +26,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.on_event("startup")
-def startup_event():
+try:
     print("[LPU ExamPrep Engine] Initializing Backend Server & Database...")
     seed_database()
+except Exception as e:
+    print(f"[LPU ExamPrep Engine] Initial DB seed note: {e}")
+
+@app.on_event("startup")
+def startup_event():
+    try:
+        seed_database()
+    except Exception as e:
+        print(f"[LPU ExamPrep Engine] Startup DB seed note: {e}")
 
 # Register API Routers
 app.include_router(auth.router, prefix="/api")

@@ -75,7 +75,19 @@ def register_user(reg_in: RegisterSchema, db: Session = Depends(get_db)):
 
 @router.post("/login")
 def login_user(login_in: LoginSchema, db: Session = Depends(get_db)):
-    user = db.query(UserSQL).filter(UserSQL.email == login_in.email).first()
+    if db.query(UserSQL).count() == 0:
+        try:
+            from database.seed_data import seed_database
+            seed_database()
+        except Exception as e:
+            print(f"[Auth Login Seed Warning] {e}")
+
+    email_clean = login_in.email.strip().lower() if login_in.email else ""
+    user = db.query(UserSQL).filter(UserSQL.email == email_clean).first()
+    if not user and login_in.email:
+        # Fallback: check case-insensitive match
+        user = db.query(UserSQL).filter(UserSQL.email.ilike(email_clean)).first()
+
     if not user or not verify_password(login_in.password, user.hashed_password):
         raise HTTPException(status_code=401, detail="Invalid email address or password.")
 
